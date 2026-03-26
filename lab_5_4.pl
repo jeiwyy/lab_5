@@ -13,7 +13,13 @@ task(A, N, V, G, D) :-
     (N == 0, V == 0 -> D == 1 ; true),
     (V == 1, N == 0 -> (D == 0, G == 1) ; true).
 
-main :-
+find_all :-
     task(A, N, V, G, D),
-    write('1 - присутствует, 0 - отсутствует'), nl,
-    format('A:~w N:~w V:~w G:~w D:~w~n', [A, N, V, G, D]).
+    write('Подходящий состав: '),
+    format('A:~w N:~w V:~w G:~w D:~w', [A, N, V, G, D]), nl,
+    fail.
+find_all. 
+
+main :-
+    write('Все возможные составы (1 - присут., 0 - отсут.)'), nl,
+    find_all.
